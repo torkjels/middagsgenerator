@@ -12,7 +12,7 @@ const workouts = [
   {name: 'Hamstring bridges', categoryId: 2},
   {name: 'Sideliggende benhev', categoryId: 2},
   {name: 'Lateral band walks', categoryId: 2},
-  {name: 'Hamstring bridges', categoryId: 2},
+  {name: 'Hamstring walks', categoryId: 2},
   {name: 'Sitback medius side plank', categoryId: 2},
   {name: 'Utfall', categoryId: 2},
   {name: 'Pushups', categoryId: 1},
