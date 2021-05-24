@@ -1,6 +1,6 @@
 const categories = [
   {name: 'Overkropp', id: 1},
-  {name: 'Ben', id: 2},
+  {name: 'Underkropp', id: 2},
 ]
 
 const workouts = [
@@ -26,6 +26,7 @@ const workouts = [
   {name: 'Roing', categoryId: 1},
   {name: 'Triceps curl', categoryId: 1},
   {name: 'Deadbugs', categoryId: 1},
+  {name: 'Toe touches', categoryId: 1},
 ];
 
 function buildPage() {
@@ -35,7 +36,8 @@ function buildPage() {
     const label = document.createElement("label");
     const inputId = category.name;
     label.htmlFor = inputId;
-    label.innerText = `${category.name}: `
+    const workoutsForCategory = workouts.filter(workout => workout.categoryId === category.id);
+    label.innerText = `${category.name} (0-${workoutsForCategory.length}): `
     const input = document.createElement("input");
     input.id = inputId;
     input.type= "number";
@@ -66,9 +68,13 @@ function generateWorkout() {
 
   const resultExercises = [];
   Object.values(exercisesPerCategory).forEach(categoryInput => {
-	  for (let i = 0; i<categoryInput.amount ; i++) {
-		  const workoutsForCategory = workouts.filter(workout => workout.categoryId === categoryInput.categoryId);
-      resultExercises.push(workoutsForCategory[Math.floor(Math.random() * workoutsForCategory.length)]);
+	let workoutsForCategory = workouts.filter(workout => workout.categoryId === categoryInput.categoryId);
+  	for (let i = 0; i<categoryInput.amount ; i++) {
+		const selected = workoutsForCategory[Math.floor(Math.random() * workoutsForCategory.length)]
+	  	resultExercises.push(selected);
+		workoutsForCategory = workoutsForCategory.filter(workout => workout.name !== selected.name);
+        console.log('hoho', selected.name)
+        console.log('hei', workoutsForCategory)
 	  }
   })
   console.log(resultExercises);
@@ -77,7 +83,7 @@ function generateWorkout() {
     resultExercises.forEach(resultExercise => {
     const el = document.createElement('li')
     el.innerText = resultExercise.name
-		result.appendChild(el)
+	result.appendChild(el)
   })
     
 	document.body.appendChild(result);
