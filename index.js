@@ -18,15 +18,12 @@ const dinners = [
 ];
 
 function generateDinner() {
-  const oldSpan = document.querySelector('span');
-  if (oldSpan) {
-    oldSpan.remove();
-  }
   const resultDinner = dinners[Math.floor(Math.random()*dinners.length)];
   console.log(resultDinner);
    
-  const span = document.createElement('span')
+  const span = document.querySelector('#result__span')
   span.innerText = resultDinner.name
-    
-  document.querySelector("#result").appendChild(span);
+  
+  const button = document.querySelector('button')
+  button.innerText = "Nei, ikkje d..!"
 }
