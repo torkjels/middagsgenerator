@@ -3,7 +3,18 @@ const dinners = [
   {name: 'Pastagrateng'},
   {name: 'Curry'},
   {name: 'Taco'},
-  {name: 'Nachos'}
+  {name: 'Nachos'},
+  {name: 'Risotto'},
+  {name: 'One-pot pasta'},
+  {name: 'Wok med nudler'},
+  {name: 'Soppstuing med grønnsaker og ris'},
+  {name: 'Soppstuing med pasta'},
+  {name: 'Linsegryte'},
+  {name: 'Thaiboller'},
+  {name: 'Søtpotetsuppe'},
+  {name: 'Linsegryte'},
+  {name: 'Poké bowl'},
+  {name: 'Pannekaker'},
 ];
 
 function generateDinner() {
